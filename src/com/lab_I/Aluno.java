@@ -97,15 +97,43 @@ Método exibeDados para apresentar todos os dados da classe
             String novaSenha2 = scanner.nextLine();
             if (novaSenha1.equals(novaSenha2)) {
                 this.setSenha(novaSenha1);
-                System.out.println("Senha alterada com sucesso!");
+                System.out.println("Senha alterada com SUCESSO!\n");
             } else {
                 System.out.println("Erro ao repetir senha nova");
+                erroSenha();
+                System.out.println("TENTATIVAS ESGOTADAS, SENHA BLOQUEADA!");
             }
         }else{
-            System.out.println("Senha INCORRETA!");
+            System.out.println("Senha INCORRETA!\n");
+            senhaINCORRETA();
         }
     }
+    int tenteNovamente = 0;
+    String mensgErroRepetirSenha = "Erro ao repetir senha nova";
 
+    public void erroSenha(){
+        while (tenteNovamente < 4) {
+            if (mensgErroRepetirSenha.equals("Erro ao repetir senha nova")) {
+                alterarSenha();
+                tenteNovamente++;
+            }
+        }
+    }
+    String erroSenhaAtual = "Senha INCORRETA!";
+    int i = 0;
+    public void senhaINCORRETA() {
+
+        do {
+            if (i < 2) {
+                i++;
+                alterarSenha();
+            } else {
+                System.out.println("TENTATIVAS ESGOTADAS");
+            }
+        }
+        while (erroSenhaAtual.equals("Senha INCORRETA!\n"));
+
+        }
     public void exibeDados() {
         System.out.println("================== ALUNO ==================");
         System.out.println("Código: " + getCodigo());
@@ -116,3 +144,4 @@ Método exibeDados para apresentar todos os dados da classe
         System.out.println("\n============================================");
     }
 }
+
