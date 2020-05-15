@@ -1,39 +1,86 @@
 package com.lab_I;
 
+import java.util.Scanner;
 public class Main {
+    static int MaxC = 2;
+    static int contC = 0;
+
+    static int MaxA = 4;
+    static int contA = 0;
+
+    //Método para criar uma Cidade
+    public static Cidade criarCidade() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite a quantidade de cidades que queres criar:");
+
+        System.out.println("\n-- Criando a " + contC + "ª  Cidade --");
+        System.out.print("Código da Cidade: ");
+        int cod = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Nome da Cidade: ");
+        String nomeCidade = sc.nextLine();
+        System.out.print("Estado da Cidade: ");
+        String uf = sc.nextLine();
+
+        Cidade newCid = new Cidade(cod,nomeCidade,uf);
+        return newCid;
+    }
+
+    //Método para criar um Aluno
+    public static Aluno criarAluno(Cidade c) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("\n-- Criando o " + contA + "º Aluno--");
+        System.out.print("Código do Aluno: ");
+        int codigo = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Nome do Aluno: ");
+        String nome = sc.nextLine();
+        System.out.print("Data de nascimento: ");
+        String dataNasc = sc.nextLine();
+        System.out.print("E-mail: ");
+        String email = sc.nextLine();
+        System.out.print("Crie uma senha para este Aluno: ");
+        String senha = sc.nextLine();
+
+        Aluno newAlu = new Aluno(codigo,nome,dataNasc,email,senha,c);
+        return newAlu;
+    }
+
 
     public static void main(String[] args) {
-        Cidade cidade = new Cidade();
-        cidade.criarCidade();
+        Cidade[]city = new Cidade[MaxC];
+        Aluno[]student = new Aluno[MaxA];
+        Scanner sc = new Scanner(System.in);
+        int resp;
+        String passwordOK = "TENTATIVAS ESGOTADAS, SENHA BLOQUEADA!\n Entre em contato com o setor de TI";
+
+        do{
+            city[contC] = criarCidade();
+            city[contC].exibeDados();
+
+            do{
+                student[contA] = criarAluno(city[contC]);
+                student[contA].alterarSenha();
+                if (passwordOK.equals("TENTATIVAS ESGOTADAS, SENHA BLOQUEADA!\n Entre em contato com o setor de TI")){
+                    System.out.println("     Contato TI: (51 9999.8888)\n");
+                } else { student[contA].exibeDados();}
+                city[contC].exibeDados();
+                contA++; //incrementa o índice do array de alunos
+
+                System.out.print("\nDeseja Criar outro Aluno ? 1-Sim 2-Não: ");
+                resp = sc.nextInt();
+            }while (resp == 1);
+
+            contC++; //incrementa o índice do array de cidades
+        }while (contC < MaxC) ;//limitei a 2 Cidades para poder testar
+
+        System.out.println("\n\t-- RESUMO DE OBJETOS --");
+        for(int c = 0; c<contC; c++){
+            city[c].exibeDados();
+        }
+        for(int a = 0; a<contA; a++){
+            student[a].exibeDados();
+        }
     }
 }
-
-
-
-
-// SE PRECISAR JÁ TEM PRONTO...
-
-        /*Aluno aluno = new Aluno();
-        aluno.criarAluno();*/
-
-
-//Cidade cidade = new Cidade();
-//cidade.criarCidade();
-
-
-        /*Cidade c1 = new Cidade( "Porto Alegre", "RS");
-
-        Aluno a1 = new Aluno("Anelsi","14/04/1987", "anelisi@unisinos.com", "123456");
-        Aluno a2 = new Aluno("Arthur", "30/10/1986", "arthur@unisinos.com", "654321");
-
-        Cidade c2 = new Cidade("São Borja", "RS");
-
-        Aluno a3 = new Aluno("Eliane", "10/03/1960", "eliane@unisinos.com",  "456789");
-        Aluno a4 = new Aluno("Leides","15/04/1987" ,"leides@unisinos.com" , "987654");
-
-        a1.alterarSenha();
-
-        c1.exibeDados();
-        c2.exibeDados();*/
-
-

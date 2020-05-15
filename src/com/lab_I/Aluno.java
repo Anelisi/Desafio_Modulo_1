@@ -14,39 +14,19 @@ public class Aluno {
     private Cidade cidade;
     private String novaSenha1;
 
-    int q = 1; // contador
-    int j = 3; // tamanho do array
-
-//Construtor por parâmetros
-    public Aluno(String nome, String dataNasc, String email, String senha) {
-         this.nome = nome;
-         this.dataNasc = dataNasc;
-         this.email = email;
-         this.senha = senha;}
-//Construtor vazio
-    public Aluno() {}
-
-    public void criarAluno() {
-        Aluno[] a = new Aluno[j];
-        do {
-            a[q] = new Aluno();
-            a[q].codigo = q;
-            System.out.println("Nome do aluno " + q + "º:");
-            a[q].nome = scanner.nextLine();
-            System.out.println("Data de nascimento: ");
-            a[q].dataNasc = scanner.nextLine();
-            System.out.println("E-mail: ");
-            a[q].email = scanner.nextLine();
-            System.out.println("Crie uma senha para este aluno: ");
-            a[q].senha = scanner.nextLine();
-            a[q].cidade = cidade;
-
-            a[q].exibeDados();
-            q++;
-
-        } while (q <= a.length - 1);
-
+    //Construtor por parâmetros
+    public Aluno(int cod, String nome, String dataNasc, String email, String senha, Cidade cid) {
+        codigo = cod;
+        this.nome = nome;
+        this.dataNasc = dataNasc;
+        this.email = email;
+        this.senha = senha;
+        cidade = cid;
+        cidade.addAluno();
     }
+
+    //Construtor vazio
+    public Aluno() {}
 
 
     //Métodos get e set
@@ -56,6 +36,11 @@ public class Aluno {
 
     public String getNome() {
         return nome;
+    }
+
+    public void setCodigo() {
+        System.out.println("Altere o código deste aluno: ");
+        this.codigo = scanner.nextInt();
     }
 
     public void setNome() {
@@ -106,14 +91,18 @@ public class Aluno {
             System.out.println("Senha INCORRETA!\n");
 
             String erroSenhaAtual = "Senha INCORRETA!";
-            int i = 0;
-            while (i < 3) {
+            int i = 1;
+            while (i <= 3 && !senhaAtual.equals(senha)) {
 
                 if (erroSenhaAtual.equals("Senha INCORRETA!")) {
-                    System.out.println("Digite a senha atual: ");
+                    System.out.println(i + "º Tentativa de 3\nDigite a senha atual:");
                     String senhaAtual1 = scanner.nextLine();
-                    if (!senhaAtual1.equals(senha)) {
-                        System.out.println("Senha INCORRETA!\n");
+                    if (i == 2 && !senhaAtual.equals(senha)){
+                        System.out.println("       ATENÇÃO!\nPróxima tentativa errada\n BLOQUEARÁ A SEU ACESSO\n");
+                    }
+                    if (i==3 && !senhaAtual.equals(senha)){
+
+                        System.out.println("TENTATIVAS ESGOTADAS, ACESSO BLOQUEADO!\n Entre em contato com o setor de TI");
                     }
                     i++;
                 }
@@ -133,7 +122,7 @@ public class Aluno {
                 int tenteNovamente = 1;
                 String mensgErroRepetirSenha = "Erro ao repetir senha nova";
 
-                while (tenteNovamente <= 3) {
+                while (tenteNovamente <= 3 && !novaSenha1.equals(novaSenha2)) {
                     if (mensgErroRepetirSenha.equals("Erro ao repetir senha nova")) {
                         System.out.println(tenteNovamente + "º Tentativa de 3\nRepita a nova senha: ");
                         String novaSenha3 = scanner.nextLine();
@@ -142,7 +131,7 @@ public class Aluno {
                         }
                         if (tenteNovamente==3 && !novaSenha3.equals(novaSenha1)){
 
-                            System.out.println("TENTATIVAS ESGOTADAS, SENHA BLOQUEADA!");
+                            System.out.println("TENTATIVAS ESGOTADAS, SENHA BLOQUEADA!\n Para efetuar o desbloqueio entre em contato com o setor de TI");
                         }
                         tenteNovamente++;
 
@@ -164,30 +153,7 @@ public class Aluno {
         System.out.println("Nome: " + getNome());
         System.out.println("Data de nascimento: " + getDataNasc());
         System.out.println("E-mail: " + getEmail());
-       // System.out.println("Cidade: " + cidade.getDescricao() + "/" + cidade.getUf());
+        System.out.println("Cidade: " + cidade.getNomeCidade() + "/" + cidade.getUf());
         System.out.println("\n============================================");
     }
 }
-
-// UMA VEZ DEU CERTO...
-
-
-/* Método para conferir o código do aluno
-    Scanner sc = new Scanner(System.in);
-
-    public void conferirCodigoAluno() {
-        System.out.println("Digite o seu código de aluno: ");
-        int confereCodigo = sc.nextInt();
-
-        for (int z = 0; z <= a.length; z++) {
-            if (confereCodigo == a[q].getCodigo()) {
-                a[q].alterarSenha();
-            } else {
-                System.out.println("Informação incorreta");
-            }
-            a[q].exibeDados();
-        }
-    }*/
-
-
-
