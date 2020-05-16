@@ -3,15 +3,14 @@ package com.lab_I;
 import java.util.Scanner;
 public class Main {
     static int MaxC = 2;
-    static int contC = 0;
+    static int contC = 1;
 
     static int MaxA = 4;
-    static int contA = 0;
+    static int contA = 1;
 
     //Método para criar uma Cidade
     public static Cidade criarCidade() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Digite a quantidade de cidades que queres criar:");
 
         System.out.println("\n-- Criando a " + contC + "ª  Cidade --");
         System.out.print("Código da Cidade: ");
@@ -53,7 +52,6 @@ public class Main {
         Aluno[]student = new Aluno[MaxA];
         Scanner sc = new Scanner(System.in);
         int resp;
-        String passwordOK = "TENTATIVAS ESGOTADAS, SENHA BLOQUEADA!\n Entre em contato com o setor de TI";
 
         do{
             city[contC] = criarCidade();
@@ -62,9 +60,7 @@ public class Main {
             do{
                 student[contA] = criarAluno(city[contC]);
                 student[contA].alterarSenha();
-                if (passwordOK.equals("TENTATIVAS ESGOTADAS, SENHA BLOQUEADA!\n Entre em contato com o setor de TI")){
-                    System.out.println("     Contato TI: (51 9999.8888)\n");
-                } else { student[contA].exibeDados();}
+                student[contA].exibeDados();
                 city[contC].exibeDados();
                 contA++; //incrementa o índice do array de alunos
 
