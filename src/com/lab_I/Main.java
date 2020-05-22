@@ -2,20 +2,19 @@ package com.lab_I;
 
 import java.util.Scanner;
 public class Main {
-    static int MaxC = 2;
+    static int MaxC = 4;
     static int contC = 1;
 
-    static int MaxA = 4;
+    static int MaxA = 80;
     static int contA = 1;
 
     //Método para criar uma Cidade
     public static Cidade criarCidade() {
+        int cod = 0;
         Scanner sc = new Scanner(System.in);
 
         System.out.println("\n-- Criando a " + contC + "ª  Cidade --");
-        System.out.print("Código da Cidade: ");
-        int cod = sc.nextInt();
-        sc.nextLine();
+        System.out.println("Código da Cidade: " + ++cod);
         System.out.print("Nome da Cidade: ");
         String nomeCidade = sc.nextLine();
         System.out.print("Estado da Cidade: ");
@@ -27,12 +26,11 @@ public class Main {
 
     //Método para criar um Aluno
     public static Aluno criarAluno(Cidade c) {
+        int codigo = 0;
         Scanner sc = new Scanner(System.in);
 
         System.out.println("\n-- Criando o " + contA + "º Aluno--");
-        System.out.print("Código do Aluno: ");
-        int codigo = sc.nextInt();
-        sc.nextLine();
+        System.out.println("Código do Aluno: " + ++codigo);
         System.out.print("Nome do Aluno: ");
         String nome = sc.nextLine();
         System.out.print("Data de nascimento: ");
@@ -51,7 +49,7 @@ public class Main {
         Cidade[]city = new Cidade[MaxC];
         Aluno[]student = new Aluno[MaxA];
         Scanner sc = new Scanner(System.in);
-        int resp;
+        int resp, resp1, resp2;
 
         do{
             city[contC] = criarCidade();
@@ -59,24 +57,30 @@ public class Main {
 
             do{
                 student[contA] = criarAluno(city[contC]);
-                student[contA].alterarSenha();
+                student[contA].apresentaDados();
+                System.out.println("\nGostaria de alterar seus dados? 1-Sim 2-Não: ");
+                resp1 = sc.nextInt();
+                if (resp1 == 1){
+                    student[contA].confirmaSenha();
+                } else {
                 student[contA].exibeDados();
                 city[contC].exibeDados();
+                }
                 contA++; //incrementa o índice do array de alunos
 
                 System.out.print("\nDeseja Criar outro Aluno ? 1-Sim 2-Não: ");
                 resp = sc.nextInt();
             }while (resp == 1);
 
-            contC++; //incrementa o índice do array de cidades
-        }while (contC < MaxC) ;//limitei a 2 Cidades para poder testar
+            contC++;
+        }while (contC < MaxC) ;
 
         System.out.println("\n\t-- RESUMO DE OBJETOS --");
-        for(int c = 0; c<contC; c++){
+        for(int c = 1; c<contC; c++){
             city[c].exibeDados();
         }
-        for(int a = 0; a<contA; a++){
-            student[a].exibeDados();
+        for(int a = 1; a<contA; a++){
+            student[a].apresentaDados();
         }
     }
 }
