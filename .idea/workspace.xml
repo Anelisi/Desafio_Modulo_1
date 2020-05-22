@@ -4,7 +4,6 @@
     <list default="true" id="c2699cce-fe4d-4d5c-b618-4002bfe51be9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lab_I/Aluno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lab_I/Aluno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lab_I/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lab_I/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,38 +121,38 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.-1.right/0.0.1366.728@0.0.1366.728" timestamp="1589047971098" />
-    <state width="1323" height="211" key="GridCell.Tab.0.bottom" timestamp="1590118601575">
+    <state width="1323" height="235" key="GridCell.Tab.0.bottom" timestamp="1590125399111">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="211" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590118601575" />
-    <state width="1323" height="211" key="GridCell.Tab.0.center" timestamp="1590118601574">
+    <state width="1323" height="235" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590125399111" />
+    <state width="1323" height="235" key="GridCell.Tab.0.center" timestamp="1590125399111">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="211" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590118601574" />
-    <state width="1323" height="211" key="GridCell.Tab.0.left" timestamp="1590118601574">
+    <state width="1323" height="235" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590125399111" />
+    <state width="1323" height="235" key="GridCell.Tab.0.left" timestamp="1590125399111">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="211" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590118601574" />
-    <state width="1323" height="211" key="GridCell.Tab.0.right" timestamp="1590118601575">
+    <state width="1323" height="235" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590125399111" />
+    <state width="1323" height="235" key="GridCell.Tab.0.right" timestamp="1590125399111">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="211" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590118601575" />
-    <state width="1323" height="235" key="GridCell.Tab.1.bottom" timestamp="1590117923258">
+    <state width="1323" height="235" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590125399111" />
+    <state width="1323" height="235" key="GridCell.Tab.1.bottom" timestamp="1590125399111">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="235" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590117923258" />
-    <state width="1323" height="235" key="GridCell.Tab.1.center" timestamp="1590117923258">
+    <state width="1323" height="235" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590125399111" />
+    <state width="1323" height="235" key="GridCell.Tab.1.center" timestamp="1590125399111">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="235" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1590117923258" />
-    <state width="1323" height="235" key="GridCell.Tab.1.left" timestamp="1590117923258">
+    <state width="1323" height="235" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1590125399111" />
+    <state width="1323" height="235" key="GridCell.Tab.1.left" timestamp="1590125399111">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="235" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1590117923258" />
-    <state width="1323" height="235" key="GridCell.Tab.1.right" timestamp="1590117923258">
+    <state width="1323" height="235" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1590125399111" />
+    <state width="1323" height="235" key="GridCell.Tab.1.right" timestamp="1590125399111">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="235" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1590117923258" />
+    <state width="1323" height="235" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1590125399111" />
     <state x="465" y="76" key="RollbackChangesDialog" timestamp="1590112914504">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -181,8 +180,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/lab_I/Aluno.java</url>
-          <line>154</line>
-          <option name="timeStamp" value="33" />
+          <line>147</line>
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

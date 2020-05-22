@@ -1,6 +1,5 @@
 package com.lab_I;
 
-import java.util.PrimitiveIterator;
 import java.util.Scanner;
 
 public class Aluno {
@@ -13,6 +12,7 @@ public class Aluno {
     private String senha;
     private Cidade cidade;
     private String senhaAtual;
+    private String senhaAtual1;
     private String novaSenha1;
     private String novaSenha3;
 
@@ -83,14 +83,13 @@ public class Aluno {
     }
 
     public void confirmaSenha() {
-        String senhaAtual1 = null;
-        System.out.println("Digite a senha atual: ");
+        System.out.println("Digite a senha ATUAL: ");
         this.senhaAtual = scanner.next();
         if (!senhaAtual.equals(senha)) {
             System.out.println("Senha INCORRETA!\n");
             int i = 1;
             while (i <= 3) {
-                System.out.println(i + "º Tentativa de 3\nDigite a senha atual:");
+                System.out.println(i + "º Tentativa de 3\nDigite a senha ATUAL:");
                 senhaAtual1 = scanner.next();
                 if (i == 2 && !senhaAtual1.equals(senha)) {
                     System.out.println("       ATENÇÃO!\nPróxima tentativa errada\n BLOQUEARÁ A SEU ACESSO\n");
@@ -98,28 +97,27 @@ public class Aluno {
 
                     System.out.println("TENTATIVAS ESGOTADAS, ACESSO BLOQUEADO!\n Entre em contato com o setor de TI");
                 }
-                i++;
-                if (i == 2 || i == 3) {
-                    if (senha.equals(senhaAtual1)) {
-                        this.alterarSenha();
-                        break;
-                    }
+                // i++;
+                if (i < 3 && senha.equals(senhaAtual1)) {
+                    this.alterarSenha();
+                    break;
                 }
+                i++;
             }
 
         }else {
             this.modificaDadosAluno();
             this.alterarMaisAlgumDados();
         }
-        if (senha.equals(senhaAtual)) {
+        if (senha.equals(senhaAtual) || senha.equals(senhaAtual1)) {
             this.exibeDados();
         }else System.out.println("     Contato TI: (51 9999.8888)\n");
     }
 
     public void alterarSenha () {
-        System.out.println("Digite uma nova senha: ");
+        System.out.println("Digite uma NOVA senha: ");
         this.novaSenha1 = scanner.next();
-        System.out.println("Repita a nova senha: ");
+        System.out.println("Repita a NOVA senha: ");
         String novaSenha2 = scanner.next();
         if (novaSenha1.equals(novaSenha2)) {
             this.setSenha(novaSenha1);
@@ -138,18 +136,20 @@ public class Aluno {
                 } else if (tenteNovamente == 3 && !novaSenha1.equals(novaSenha3)) {
                     System.out.println("         TENTATIVAS ESGOTADAS, SENHA BLOQUEADA!\n Para efetuar o desbloqueio entre em contato com o setor de TI");
                 }
-                tenteNovamente++;
-                if (tenteNovamente == 2 || tenteNovamente == 3) {
-                    if (novaSenha1.equals(novaSenha3)) {
-                        this.setSenha(novaSenha1);
-                        System.out.println("Senha alterada com SUCESSO!\n");
-                        break;
-                    }
+                //tenteNovamente++;
+                if (tenteNovamente < 4 && novaSenha1.equals(novaSenha3)) {
+                    this.setSenha(novaSenha1);
+                    System.out.println("Senha alterada com SUCESSO!\n");
+                    break;
                 }
+                tenteNovamente++;
             }
         }
-        if (senha.equals(novaSenha1) || senha.equals(novaSenha3)) {
+        if (senha.equals(senhaAtual) || senha.equals(senhaAtual1)) {
+            System.out.println();
+        }else if (senha.equals(novaSenha1) || novaSenha1.equals(novaSenha3)) {
             this.exibeDados();
+
         }else {
             System.out.println("     Contato TI: (51 9999.8888)\n");
         }
@@ -223,9 +223,3 @@ public class Aluno {
         System.out.println("\n============================================");
     }
 }
-
-
-
-
-
-
